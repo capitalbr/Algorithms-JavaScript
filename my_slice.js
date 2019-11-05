@@ -21,5 +21,5 @@ console.log("testing".mySlice(0)); // testing
 console.log("testing".mySlice(3, 5)); // ti
 console.log(`abcde`.mySlice(2)); // cde
 console.log(`abcde`.mySlice(1, 3)) // bc
-console.log(`abcde`.mySlice(1, 40)) // bc
+console.log(`abcde`.mySlice(1, 40)) // bcde
 
