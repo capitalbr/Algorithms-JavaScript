@@ -5,13 +5,3 @@
 // your implementation.
 
 
-switch("a"){
-  case "a":
-    console.log("hello");
-    break;
-  case "b":
-    console.log("goodbye");
-    break;
-  default:
-    console.log("default")
-}
