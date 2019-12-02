@@ -1,9 +1,22 @@
+// time complexity O(n log(n))
+// mergesort is the bottleneck, other oprations are: 
+//    binarySearch: O(log(n))
+//    while loop:  O(n)
+
 const findSmallestPositiveInteger = (A) => {
   A = mergeSort(A);
   let i;
   let j = 1;
   while (i !== -1) {
-    i = binarySearch(A, j);
+    if (!i){
+      i = binarySearch(A, j);
+    } else {
+      while(A[i] === j - 1){
+        i++
+      }
+
+      if (A[i] !== j) return j;
+    }
     j++
   }
   return j - 1;
@@ -40,12 +53,12 @@ const binarySearch = (A, target) => {
   let mid = Math.floor(A.length / 2);
 
   if (A[mid] === target) {
-    return target;
+    return mid;
   } else if (A[mid] > target) {
     return binarySearch(A.slice(0, mid), target);
   } else {
     let value = binarySearch(A.slice(mid + 1), target);
-    return value === -1 ? -1 : value;
+    return value === -1 ? -1 : (mid + 1) + value;
   }
 }
 
@@ -63,7 +76,7 @@ console.log('findMallestPositiveInteger should return 1. It returns:',
 
 console.log('findMallestPositiveInteger should return 12. It returns:',
   findSmallestPositiveInteger(
-      [2, -2, 3, 4, 8, 9, 5, 10, 11, 6, 7, 100000, 1, 2, 3, 15, 6]
+      [6, 2, -2, 3, 4, 10, 8, 9, 5, 8, 10, 11, 7, 7, 100000, 1, 15, 6]
     ));
 
 
