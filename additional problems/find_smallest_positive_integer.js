@@ -62,7 +62,7 @@ const binarySearch = (A, target) => {
   }
 }
 
-console.log('Binary search for included int. Should return 5. It returns:', 
+console.log('Binary search for included int. Should return 4. It returns:', 
   binarySearch([1, 2, 3, 4, 5, 6], 5));
 
 console.log('Binary search for not included int. Should return -1. It returns:', 
