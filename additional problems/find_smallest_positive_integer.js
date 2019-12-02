@@ -3,7 +3,7 @@ const findSmallestPositiveInteger = (A) => {
   let i;
   let j = 1;
   while (i !== -1) {
-    i = A.binarySearch(j);
+    i = binarySearch(A, j);
     j++
   }
   return j - 1;
@@ -34,7 +34,20 @@ const merge = (left, right) => {
   return merged.concat(left, right);
 }
 
+const binarySearch = (A, target) => {
+  if (A.length === 0) return -1;
 
+  let mid = Math.floor(A.length / 2);
+
+  if (A[mid] === target) {
+    return target;
+  } else if (A[mid] > target) {
+    return binarySearch(A.slice(0, mid), target);
+  } else {
+    let value = binarySearch(A.slice(mid + 1), target);
+    return value === -1 ? -1 : value;
+  }
+}
 
 console.log('Binary search for included int. Should return 5. It returns:', 
   binarySearch([1, 2, 3, 4, 5, 6], 5));
